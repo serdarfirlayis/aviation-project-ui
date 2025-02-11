@@ -1,0 +1,170 @@
+.route-container {
+  padding: 2rem;
+}
+
+.route-form {
+  background-color: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.search-button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 38px;
+  margin-top: 32px;
+}
+
+.search-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.routes-list {
+  margin-top: 2rem;
+}
+
+.routes-list h3 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.routes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.route-item {
+  background-color: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: 4px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.route-item:hover {
+  background-color: var(--border-color);
+}
+
+.route-detail-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  background-color: var(--bg-secondary);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.route-detail-panel {
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.route-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.route-path {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.route-node {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.node-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+
+.location-name {
+  font-weight: 500;
+}
+
+.route-connection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 5px;
+  margin: 0.5rem 0;
+}
+
+.connection-line {
+  width: 2px;
+  height: 30px;
+  background-color: var(--border-color);
+  margin: 0.5rem 0;
+}
+
+.transportation-type {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-left: 24px;
+}
+
+.transportation-type.last {
+  margin-left: 24px;
+  margin-top: 0.5rem;
+} 
