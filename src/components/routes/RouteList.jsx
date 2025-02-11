@@ -22,7 +22,7 @@ function RouteList() {
       const response = await fetch('/api/locations')
       const result = await response.json()
       if (result.success) {
-        setLocations(result.data)
+        setLocations(result.data.locations)
       }
     } catch (err) {
       toast.error('Failed to fetch locations')
