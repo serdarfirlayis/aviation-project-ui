@@ -41,8 +41,8 @@ function RouteList() {
       const response = await fetch(`/api/routes/${formData.originId}/${formData.destinationId}`)
       const result = await response.json()
       if (result.success) {
-        setRoutes(result.data)
-        if (result.data.length === 0) {
+        setRoutes(result.data.routes)
+        if (result.data.routes.length === 0) {
           toast.info('No routes found')
         }
       } else {
@@ -53,29 +53,6 @@ function RouteList() {
     } finally {
       setLoading(false)
     }
-  }
-
-  const formatRoute = (route) => {
-    console.log('Route data:', route)
-    
-    if (!Array.isArray(route)) {
-      console.error('Route is not an array:', route)
-      return 'Invalid route data'
-    }
-
-    const flightTransportation = route.find(t => t.type === 'FLIGHT')
-    console.log('Flight transportation:', flightTransportation)
-
-    if (!flightTransportation) {
-      return 'No flight route available'
-    }
-
-    if (!flightTransportation.destinationName) {
-      console.error('No destination name in flight:', flightTransportation)
-      return `Via ${flightTransportation.destination?.name || 'Unknown'}`
-    }
-
-    return `Via ${flightTransportation.destinationName}`
   }
 
   const handleRouteClick = (route) => {
@@ -132,7 +109,7 @@ function RouteList() {
                 className="route-item"
                 onClick={() => handleRouteClick(route)}
               >
-                {formatRoute(route)}
+                {route.routeName}
               </div>
             ))}
           </div>

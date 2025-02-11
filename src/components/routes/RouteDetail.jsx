@@ -10,21 +10,17 @@ function RouteDetail({ route, onClose }) {
           <button className="close-button" onClick={onClose}>Close</button>
         </div>
         <div className="route-path">
-          {route.map((transportation, index) => (
+          {route.routeDetail.stations.map((station, index) => (
             <React.Fragment key={index}>
               <div className="route-node">
-                {index === 0 && <div className="location-name">{transportation.origin.name}</div>}
                 <div className="node-circle"></div>
-                <div className="location-name">{transportation.destination.name}</div>
+                <div className="location-name">{station}</div>
               </div>
-              {index < route.length - 1 && (
+              {index < route.routeDetail.stations.length - 1 && (
                 <div className="route-connection">
-                  <div className="transportation-type">{transportation.type}</div>
                   <div className="connection-line"></div>
+                  <div className="transportation-type">{route.transportations[index].type}</div>
                 </div>
-              )}
-              {index === route.length - 1 && (
-                <div className="transportation-type last">{transportation.type}</div>
               )}
             </React.Fragment>
           ))}
