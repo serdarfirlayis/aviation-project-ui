@@ -11,12 +11,12 @@ const LocationList = forwardRef(({ onEdit }, ref) => {
       const response = await fetch('/api/locations')
       const result = await response.json()
       if (result.success) {
-        setLocations(result.data)
+        setLocations(result.data.locations)
       } else {
         toast.error(result.message || 'Failed to fetch locations')
       }
     } catch (err) {
-      toast.error('Failed to fetch locations')
+      toast.error('Failed to fetch locations: ' + err.message)
     } finally {
       setLoading(false)
     }
