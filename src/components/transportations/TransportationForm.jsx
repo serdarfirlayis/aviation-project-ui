@@ -29,7 +29,7 @@ function TransportationForm({ transportation, onClose, onSuccess }) {
       const response = await fetch('/api/locations')
       const result = await response.json()
       if (result.success) {
-        setLocations(result.data)
+        setLocations(result.data.locations)
       }
     } catch (err) {
       toast.error('Failed to fetch locations')
